@@ -1,19 +1,4 @@
-
-## 1. Kubernetes-cluster configure
-
-kind: Cluster
-apiVersion: kind.x-k8s.io/v1alpha4
-
-nodes:
-- role: control-plane
-  image: kindest/node:v1.30.0
-- role: worker
-  image: kindest/node:v1.30.0
-- role: worker
-  image: kindest/node:v1.30.0
-
-
-## 2. Installing Argo CD
+## 1. Installing Argo CD
 
 Before that we have install kubectl and Kind
 
@@ -42,13 +27,13 @@ Before that we have install kubectl and Kind
 - Check with IP address like Jenkins
 
 
-## 3. Argo CD Initial Admin Password
+## 2. Argo CD Initial Admin Password
 
     Default username: admin
     Password: sudo kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d && echo
 
 
-## 4.Install HELM
+## 3.Install HELM
 
 sudo curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
 
@@ -58,7 +43,7 @@ sudo chmod 700 get_helm.sh
 
 sudo ./get_helm.sh
 
-## 5. Install Kube Prometheus Stack
+## 4. Install Kube Prometheus Stack
 
 sudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 
